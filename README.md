@@ -14,7 +14,13 @@ Contains a variety of Vector3 extension methods.
 
 ToGuiCoordinateSystem
 ---------------------
-The problem with Camera.WorldToScreenPoint is that the coordinate system it returns
+```
+var cameraScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+guiPoint = cameraScreenPoint.ToGuiCoordinateSystem();
+GUI.Label(new Rect(guiPoint.x, guiPoint.y, width, height), label);
+```
+
+The problem with Camera.WorldToScreenPoint is that the coordinate system returned
 cannot be used directly in GUI methods because the y-coordinate is flipped. This 
 inverts the Y.
 
